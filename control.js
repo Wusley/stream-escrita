@@ -13,12 +13,16 @@
 	streamSaida.write = function(chunk,encoding){
 		
 		//chunk 	= partes que estão sendo trabalhadas
-		//encoding 	= tratamento da string escrita
 		
 		//emit	= criando evento
 		//data 	= nome do evento "foi usado o nome (data) por convenção"
 		//chunk = parametro do evento
-		this.emit('data',chunk);
+		//sem tratamento -> this.emit('data',chunk);
+		
+		//encoding 	= tratamento da string escrita
+		//tratament como buffer
+		//chunk se refere à parte da string que esta sendo tratada
+		this.emit('data', new buffer(chunk,encoding));
 				
 	};
 	
